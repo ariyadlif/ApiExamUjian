@@ -1,6 +1,7 @@
 const productsController = require('../controller/productsController')
 const userController = require('../controller/userController')
 const cartController = require('../controller/cartController')
+const kursusController = require('../controller/kursusController')
 
 module.exports = app => {
 	app.get('/', productsController.home)
@@ -28,4 +29,11 @@ module.exports = app => {
 
 	//check out
 	app.get('cart/checkout/:id', cartController.checkOut)
+
+	//api kursus
+	app.get('/kursus', kursusController.listProduct)
+	app.get('/kursus/:id', kursusController.detailProduct)
+	app.post('/kursus/', kursusController.tambahProduct)
+	app.put('/kursus/:id', kursusController.ubahProduct)
+	app.delete('/kursus/:id', kursusController.hapusProduct)
 }
